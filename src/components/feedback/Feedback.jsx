@@ -3,7 +3,7 @@ import { Component } from "react";
 import SectionTitle from "./SectionTitle/SectionTitle";
 import FeedbackOptions from "./FeedbackOptions";
 import Statistics from "./Statistics";
-
+import Notification from "./Notification";
 import styles from "./feedback.module.css";
 
 
@@ -52,7 +52,8 @@ class Feedback extends Component {
                     </div>
                 </SectionTitle>
                 <SectionTitle title="Statistics">
-                    <Statistics total={total} good={this.state.good} neutral={this.state.neutral} bad={this.state.bad} countPositiveFeedbackPercentage={countPositiveFeedbackPercentage} />
+                    {total === 0 ? <Notification></Notification>
+                    : <Statistics total={total} good={this.state.good} neutral={this.state.neutral} bad={this.state.bad} countPositiveFeedbackPercentage={countPositiveFeedbackPercentage} />}
                 </SectionTitle>
             </div>
         )
